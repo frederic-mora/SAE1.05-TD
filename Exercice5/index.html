@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My Super Recipes !</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class='content'></div>
+
+        <template id="recipe_template">
+            <div class="card">
+            
+                <img class="card__header" src="{{url}}">
+
+                <h1 class="card__food">{{titre}}</h1>
+
+                <div class="card__sub">
+                    <i class="card__detail">{{temps}} Mins</i> 
+                    <i class="card__detail">Niveau : {{niveau}}</i>
+                    <i class="card__detail">Coût : {{cout}}</i>
+                </div>
+
+                <div class="card__content">
+                    <p class="card__info">{{texte}}</p>
+                    <p class="card__info"><ul>{{liste}}</ul></p>
+                </div>
+               
+                <a href="#" class="card__btn">Let's Cook!</a>
+            </div>
+        </template>
+
+        <template id="ingredient_template">
+            <li><span class="ingredient">{{nom}}</span><span class="quantity">({{combien}})</span></li>
+        </template>
+
+       <script src='script.js'></script><!-- le travail à réaliser est à rédiger dans ce fichier-->
+       
+    </body>
+</html>
