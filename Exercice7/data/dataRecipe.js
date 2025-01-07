@@ -1,29 +1,10 @@
-/*
-    Objectif de l'exercice :
-    
-    . Passer du formatage d'une recette au formatage d'un nombre quelconque de recettes.
-
-    En répondant correctement aux questions de cet exercice, vous devez obtenir un rendu analogue
-    au visuel objectif.jpg disponible dans le répertoire asset.
-
-    Comme d'habitude, interdiction d'éditez directement les fichiers index.html et style.css 
-
-*/
-
-
-
-
-/* Objet recipes : 
-   Il contient les données de l'application (ce qu'on appelle aussi : le modèle de l'application)
-   'recipes' est un tableau d'objets.
-   Chaque objet possède une structure identique et décrit une recette.
-*/
-let recipes = [
+let DataRecipe =  
+[
     // un objet décrivant une recette
     {
         info: {
             name: "Cookies maison",
-            photo: './asset/cookies.jpg',
+            photo: './assets/cookies.jpg',
             time: {
                 preparation: 15,
                 cooking: 10
@@ -50,7 +31,7 @@ let recipes = [
     {
         info: {
             name: "Les falafels",
-            photo: './asset/falafel.jpg',
+            photo: './assets/falafel.jpg',
             time: {
                 preparation: 10,
                 cooking: 10
@@ -76,7 +57,7 @@ let recipes = [
     {
         info: {
             name: "Saint Jacques sautées",
-            photo: './asset/saint-jacques.jpg',
+            photo: './assets/saint-jacques.jpg',
             time: {
                 preparation: 5,
                 cooking: 10
@@ -100,7 +81,7 @@ let recipes = [
     {
         info: {
             name: "Tian de légumes",
-            photo: './asset/tian.jpg',
+            photo: './assets/tian.jpg',
             time: {
                 preparation: 15,
                 cooking: 120
@@ -126,7 +107,7 @@ let recipes = [
     {
         info: {
             name: "Taboulé Libanais",
-            photo: './asset/taboule.jpg',
+            photo: './assets/taboule.jpg',
             time: {
                 preparation: 40,
                 cooking: 0
@@ -153,7 +134,7 @@ let recipes = [
     {
         info: {
             name: "Côte de boeuf",
-            photo: './asset/cote-de-boeuf.jpg',
+            photo: './assets/cote-de-boeuf.jpg',
             time: {
                 preparation: 10,
                 cooking: 20
@@ -177,7 +158,7 @@ let recipes = [
     {
         info: {
             name: "Tarte au citron",
-            photo: './asset/tarte-au-citron.jpg',
+            photo: './assets/tarte-au-citron.jpg',
             time: {
                 preparation: 20,
                 cooking: 30
@@ -203,7 +184,7 @@ let recipes = [
     {
         info: {
             name: "Purée Robuchon",
-            photo: './asset/puree-robuchon.jpg',
+            photo: './assets/puree-robuchon.jpg',
             time: {
                 preparation: 15,
                 cooking: 25
@@ -225,76 +206,4 @@ let recipes = [
 
 ]; // end of recipes
 
-
-
-
-/* Objet View
-   La vue (View) désigne l'interface web. Elle contient toutes les fonctions qui permettent de 
-   modifier/formater (et plus tard interagir) avec la page web (tout ou partie).
-   Et oui, contrairement au précédent exercice, elle vous est donnnée vide. Mais c'est parce
-   qu'il y a moins de chose à mettre dedans !
-*/
-let View = {}; 
-
-/*  Q1
-
-    Pas vraiment une question, contentez-vous de reporter le code de la fonction formatOneIngredient
-    réalisé dans le précédent exercice.
-*/
-
-/* formatOneIngredient
-   . paramètre name : le nom de l'ingrédient
-   . paramètre quantity : la quantité de l'ingrédient
-   > valeur de retour : une chaine correspondant au contenu HTML formaté du template "#ingredient_template"
-
-*/
-View.formatOneIngredient = function(name, quantity){
-    // reportez ici votre code
-}
-
-/* Q2 : comment formater une recette avec sa liste d'ingrédients ?
-
-    Idem, contentez-vous de reporter votre code du précédent exercice.
-*/
-/* formatOneRecipe 
-   . paramètre r : un objet tel que ceux contenus dans le tableau "recipes"
-   > valeur de retour : une chaine correspondant au contenu HTML formate du template "#recipe_template"
-*/
-View.formatOneRecipe = function(r){
-    let template = document.querySelector('#recipe_template');
-    let html = template.innerHTML;
-    html = html.replace('{{url}}', r.info.photo);
-    html = html.replace('{{titre}}', r.info.name);
-    html = html.replace('{{temps}}', r.info.time.cooking+r.info.time.preparation);
-    html = html.replace('{{niveau}}', r.info.difficulty);
-    html = html.replace('{{cout}}', r.info.cost);
-    html = html.replace('{{texte}}', r.info.description);
-
-    // reportez ici votre code
-
-    return html;
-}
-
-
-/* Q3 : comment formater/afficher plusieurs recettes ?
-
-    Ajoutez une fonction renderRecipes (avec un s !) qui vous permettra d'afficher dans la page
-    toutes les recettes contenues dans le tableau recipes.
-*/
-/* renderRecipes
-   . paramètre data : un tableau de recettes (comme "recipes")
-
-   renderRecipes ne retourne pas de valeur. Les recettes sont formatées à l'aide de renderOneRecipe
-   puis sont toutes ajoutées dans la div de classe "content".
-   
-*/
-View.renderRecipes = function( data ){
-    // ??
-}
-
-/*  Q4
-
-    Faites un appel à View.renderRecipes en lui donnant en paramètre le tableau recipes
-    pour tester l'ensemble de votre code et obtenir le résultat final.
-*/
-// ??
+export {DataRecipe};

@@ -8,14 +8,31 @@
 
     Comme d'habitude, interdiction d'éditez directement les fichiers index.html et style.css 
 
+    IMPORTANT :
+
+    On vous l'a déjà dit : il faut toujours séparer le fond de la forme.
+    En développement, c'est la clé pour un code propre, maintenable et évolutif.
+    Sans cela, vous vous perdrez. Et très vite.
+
+    En développement web, le fond, ce sont les données de l'application (par exemple les informations à afficher).
+    La forme, c'est comment on affiche ces données (par exemple un composant formé d'un template HTML/CSS).
+
+    On ne parle pas de fond et de forme en développement, mais de modèle (les données) et de vue (l'affichage).
+    C'est affaire de vocabulaire essentiellement.
+
+    Et pour lier le fond/modèle à la forme/vue, on utilise un troisième concept : le contrôleur.
+    Le contrôleur est la partie du code on l'on choisira les données à transmettre au bon composant pour affichage.
 */
 
 
-/*  Objet oneRecipe
+
+
+/*  Objet DataRecipe
    
-    Contient les données décrivant une recette de cookie.
+    DataRecipe décrit les données d'une recette. DataRecipe relève du modèle de notre "application".
+    Dans une application réelle, ces données pourraient provenir d'une base de données.
 */
-let oneRecipe = {
+let DataRecipe = {
     info: {
         name: "Cookies maison",
         photo: './asset/cookies.jpg',
@@ -27,28 +44,33 @@ let oneRecipe = {
         difficulty: 'Facile',
         description: "Réalisez de délicieux cookies en un clin d'oeil !"
     }
-}; // fin oneRecipe
+}; // fin DataRecipe
 
 
 
-/* Objet View
-   La vue (View) représente l'interface web. Elle contient toutes les fonctions qui permettent de 
-   modifier/formater (et plus tard interagir) avec la page web (tout ou partie).
+/* Objet Recipe
+   Recipe est un objet qui symbolise le composant Recipe. Il relève de la vue de notre "application".
+   Recipe va être en charge de l'affichage d'une recette (peu importe laquelle, DataRecipe ou autre).
+   Dans un objet on sait qu'on peut ajouter des variables qu'on appelle propriétés.
+   Et bien on peut aussi ajouter des fonctions qu'on appelle méthodes.
+   On va donc ajouter à Recipe une méthode "format" qui sera chargée de formater le template
+   "#recipe_template" avec les données d'une recette.
 */
-let View = {}; 
+let Recipe = {}; 
+
 
 /* Q1 : comment formater une recette ?
 
-    Complétez la fonction formatOnRecipe qui formate le template
+    Complétez la fonction/méthode Recipe.format qui formate le template
     "#recipe_template" avec les données d'une recette. 
 */
 
-/* formatOneRecipe 
-   . paramètre r : un objet similaire à oneRecipe 
+/* Recipe.format
+   . paramètre r : un objet dont la structure est similaire à DataRecipe 
    > valeur de retour : une chaine correspondant au contenu HTML formaté du template "#recipe_template"
 */
-View.formatOneRecipe = function(r){
-    // ??
+Recipe.format = function(r){
+    // TODO
 }
 
 
@@ -58,18 +80,24 @@ View.formatOneRecipe = function(r){
     apparaître dans la div de classe 'content'
 */
 
-/* renderRecipe
-   . paramètre r : un objet décrivant une recette similaire à oneRecipe
+/* Recipe.render
+   . paramètre where : le selecteur CSS de l'élément où afficher la recette r
+   . paramètre r : un objet décrivant une recette, avec un structure similaire à DataRecipe
    > aucune valeur de retour   
 */
-View.renderRecipe = function( r ){
-    // ??
+Recipe.render = function( where, r ){
+    // TODO
 }
 
-// ??
+
+/* Partie Contrôleur 
+    Ici, le contrôleur est très simple : il va juste demander à Recipe d'afficher la recette
+    DataRecipe dans l'élément HTML de classe 'content'.
+*/
+// TODO
 
 
-/* Q3 : Et si l'on modifie le template ? Pas de JS à écrire ici, juste les mêmes petits que dans l'exercice prédédent.
+/* Q3 : Et si l'on modifie le template ? P(as de JS à écrire ici)
 
     . Modifier le template "#recipe_template" : au lieu d'afficher le temps, le niveau, le coût, affichez le niveau, le cout, le temps.
       Que constatez-vous ?

@@ -1,41 +1,28 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>My Super Recipes !</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starter Start-Up SAé1.05</title>
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <section class="content"></section>
 
-        <div class='content'></div>
+    <script type="module">
+      // ce script est de type module.
+      // Cela permet d'importer ce qui est exporté du fichier javascript indiqué après from
+      // On importe l'objet DataRecipe contenu (et exporté) dans "./data/dataRecipe.js"
+      import { DataRecipe } from "./data/dataRecipe.js";
+      // On importe le composant/objet Recipe contenu (et exporté) dans "./component/Recipe/script.js"
+      import { Recipe } from "./component/Recipe/script.js";
 
-        <template id="recipe_template">
-            <div class="card">
-            
-                <img class="card__header" src="{{url}}">
+      // Partie controlleur 
+      // Après avoir importé les données (modèle) et la composant Recipe (vue),
+      // On fait afficher le premier par le second
+      Recipe.render(".content", DataRecipe);
 
-                <h1 class="card__food">{{titre}}</h1>
-
-                <div class="card__sub">
-                    <i class="card__detail">{{temps}} Mins</i> 
-                    <i class="card__detail">Niveau : {{niveau}}</i>
-                    <i class="card__detail">Coût : {{cout}}</i>
-                </div>
-
-                <div class="card__content">
-                    <p class="card__info">{{texte}}</p>
-                    <p class="card__info"><ul>{{liste}}</ul></p>
-                </div>
-               
-                <a href="#" class="card__btn">Let's Cook!</a>
-            </div>
-        </template>
-
-        <template id="ingredient_template">
-            <li><span class="ingredient">{{nom}}</span><span class="quantity">({{combien}})</span></li>
-        </template>
-
-       <script src='script.js'></script><!-- le travail à réaliser est à rédiger dans ce fichier-->
-       
-    </body>
+    </script>
+  
+  </body>
 </html>
